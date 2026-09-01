@@ -126,6 +126,31 @@
   .checklist ul{ margin:0; padding-left:20px; }
   .checklist li{ margin:10px 0; }
   .checklist li b{ color:var(--up); }
+  .breadcrumb{ font-size:0.85rem; color:var(--sub); margin-bottom:6px; }
+  .breadcrumb a{ color:var(--sub); }
+  .lab{
+    background:#EAF2F5; border:2px solid var(--down); border-radius:14px;
+    padding:20px 18px; margin:26px 0; box-shadow:5px 5px 0 var(--down);
+  }
+  .lab h3{ margin:0 0 4px; font-family:'Gaegu', sans-serif; font-size:1.25rem; color:var(--down); }
+  .lab .sub{ font-size:0.88rem; color:var(--sub); margin-bottom:14px; }
+  .grid4{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+  @media(max-width:520px){ .grid4{ grid-template-columns:repeat(2,1fr); } }
+  .field{ display:flex; flex-direction:column; gap:4px; }
+  .field label{ font-size:0.82rem; color:var(--sub); }
+  .field input{
+    border:2px solid var(--ink); border-radius:8px; padding:8px 9px;
+    font-size:0.95rem; font-family:inherit; width:100%; background:#fff;
+  }
+  .lab .result{
+    margin-top:14px; padding:10px 14px; background:#fff;
+    border:2px dashed var(--down); border-radius:10px; font-size:0.92rem;
+  }
+  .navrow{ display:flex; justify-content:space-between; gap:12px; margin-top:56px; font-size:0.92rem; flex-wrap:wrap; }
+  .navrow a{
+    color:var(--ink); text-decoration:none; border:2px solid var(--ink); border-radius:10px;
+    padding:10px 16px; box-shadow:3px 3px 0 var(--ink); background:#fff;
+  }
   footer{
     margin-top:70px;
     padding-top:20px;
@@ -140,6 +165,8 @@
 </head>
 <body>
 <div class="wrap">
+
+  <div class="breadcrumb"><a href="./index.html">📚 주식 공부 아카이브</a> / 2장</div>
 
   <div class="hero">
     <h1>차트, 이렇게 보면<br><span class="accent">쉬워요</span> 📈➡️🧠</h1>
@@ -157,6 +184,19 @@
     <p>종가가 시가보다 <span style="color:var(--up); font-weight:700;">높으면 빨간 봉</span>(올랐다),
     종가가 시가보다 <span style="color:var(--down); font-weight:700;">낮으면 파란 봉</span>(내렸다) — 이렇게 색으로 방향을 바로 알 수 있어.
     몸통 위아래로 삐죽 나온 선을 <b>꼬리(윗꼬리/아랫꼬리)</b>라고 하는데, 이건 "잠깐 이 가격까지 갔다가 밀려났다"는 흔적이야.</p>
+
+    <div class="lab">
+      <h3>🧮 직접 봉 하나 만들어보기</h3>
+      <div class="sub">시가·종가·고가·저가를 바꿔보면서 봉 모양이 어떻게 변하는지 확인해봐.</div>
+      <div class="grid4">
+        <div class="field"><label>시가</label><input type="number" id="lab-open" value="100"></div>
+        <div class="field"><label>종가</label><input type="number" id="lab-close" value="108"></div>
+        <div class="field"><label>고가</label><input type="number" id="lab-high" value="112"></div>
+        <div class="field"><label>저가</label><input type="number" id="lab-low" value="97"></div>
+      </div>
+      <div class="chart-card" style="margin-bottom:0;"><div id="chart-lab"></div></div>
+      <div class="result" id="lab-result">계산 중...</div>
+    </div>
   </section>
 
   <section id="s2">
@@ -234,6 +274,12 @@
       </ul>
     </div>
   </section>
+
+  <div class="navrow">
+    <a href="./what-is-stock.html">← 1장. 주식이란 무엇인가</a>
+    <a href="./index.html">목차로</a>
+    <a href="./order-types.html">3장. 주문 종류와 호가창 →</a>
+  </div>
 
   <footer>
     이 문서의 차트는 설명을 위해 만든 가상의 예시 데이터야. 실제 투자 판단은 여러 지표와
@@ -492,6 +538,43 @@ renderMA();
 renderVolume();
 renderLevels();
 renderRSI();
+
+// ---- 직접 만들어보는 봉 ----
+function renderLabCandle(){
+  const o = parseFloat(document.getElementById('lab-open').value) || 0;
+  const c = parseFloat(document.getElementById('lab-close').value) || 0;
+  let h = parseFloat(document.getElementById('lab-high').value) || 0;
+  let l = parseFloat(document.getElementById('lab-low').value) || 0;
+  h = Math.max(h, o, c);
+  l = Math.min(l, o, c);
+
+  const W = 300, H = 220;
+  const pMin = l - (h-l)*0.15 - 1, pMax = h + (h-l)*0.15 + 1;
+  const y = (p)=> 20 + (pMax-p)/(pMax-pMin) * (H-40);
+  const cx = W/2, bw = 60;
+  const up = c >= o;
+  const color = up ? colorMap.up : colorMap.down;
+  const yHigh = y(h), yLow = y(l), yOpen = y(o), yClose = y(c);
+  const yTop = Math.min(yOpen,yClose);
+  const bodyH = Math.max(Math.abs(yClose-yOpen), 1.5);
+
+  let s = `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" font-family="Gowun Dodum, sans-serif">`;
+  s += `<line x1="${cx}" y1="${yHigh.toFixed(1)}" x2="${cx}" y2="${yLow.toFixed(1)}" stroke="${color}" stroke-width="2"/>`;
+  s += `<rect x="${cx-bw/2}" y="${yTop.toFixed(1)}" width="${bw}" height="${bodyH.toFixed(1)}" fill="${color}" rx="2"/>`;
+  s += `</svg>`;
+  document.getElementById('chart-lab').innerHTML = s;
+
+  const el = document.getElementById('lab-result');
+  const diff = c - o;
+  const pct = o !== 0 ? (diff/o*100).toFixed(1) : '-';
+  el.innerHTML = up
+    ? `종가(${c}) &gt; 시가(${o}) → <b style="color:${colorMap.up}">빨간 봉(양봉)</b>, ${pct}% 상승`
+    : `종가(${c}) &lt; 시가(${o}) → <b style="color:${colorMap.down}">파란 봉(음봉)</b>, ${Math.abs(pct)}% 하락`;
+}
+['lab-open','lab-close','lab-high','lab-low'].forEach(id=>{
+  document.getElementById(id).addEventListener('input', renderLabCandle);
+});
+renderLabCandle();
 </script>
 </body>
 </html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>주식이란 무엇인가</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAFAF5; --grid:#E4E7DD; --paper:#FFFFFF; --ink:#23262B;
+    --sub:#6C7268; --up:#D6455A; --down:#2E6B8A; --mustard:#E3A73F;
+  }
+  *{box-sizing:border-box;}
+  html{ color-scheme: light; }
+  html,body{margin:0;padding:0;}
+  body{
+    background-color:var(--bg);
+    background-image:
+      repeating-linear-gradient(0deg, var(--grid) 0px, var(--grid) 1px, transparent 1px, transparent 32px),
+      repeating-linear-gradient(90deg, var(--grid) 0px, var(--grid) 1px, transparent 1px, transparent 32px);
+    color:var(--ink); font-family:'Gowun Dodum', sans-serif; line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{ max-width:660px; margin:0 auto; padding:44px 22px 90px; }
+  h1,h2,h3{ font-family:'Gaegu', sans-serif; font-weight:700; color:var(--ink); margin:0; }
+  .breadcrumb{ font-size:0.85rem; color:var(--sub); margin-bottom:18px; }
+  .breadcrumb a{ color:var(--sub); }
+  .hero{ text-align:left; padding-bottom:28px; margin-bottom:34px; border-bottom:3px solid var(--ink); }
+  .hero h1{ font-size:2.2rem; line-height:1.3; }
+  .hero .accent{ color:var(--up); }
+  .hero p{ font-size:1.05rem; color:var(--sub); margin-top:14px; max-width:520px; }
+  section{ margin:56px 0; }
+  section h2{ font-size:1.5rem; margin-bottom:14px; display:flex; align-items:baseline; gap:10px; }
+  section h2 .num{ font-family:'Gaegu', sans-serif; color:var(--up); font-size:1.6rem; }
+  section p{ font-size:1rem; margin:12px 0; }
+  .chart-card{
+    background:var(--paper); border:2px solid var(--ink); border-radius:14px;
+    padding:18px 14px; margin:22px 0; box-shadow:5px 5px 0 var(--ink);
+  }
+  .chart-card svg{ width:100%; height:auto; display:block; }
+  .note{
+    background:#FFF6E4; border:2px dashed var(--mustard); border-radius:10px;
+    padding:14px 16px; font-size:0.95rem; margin:18px 0;
+  }
+  .note b{ color:#9c6d17; }
+  .lab{
+    background:#EAF2F5; border:2px solid var(--down); border-radius:14px;
+    padding:20px 18px; margin:26px 0; box-shadow:5px 5px 0 var(--down);
+  }
+  .lab h3{ margin:0 0 4px; font-size:1.25rem; color:var(--down); }
+  .lab .sub{ font-size:0.88rem; color:var(--sub); margin-bottom:14px; }
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  @media(max-width:480px){ .grid2{ grid-template-columns:1fr; } }
+  .field{ display:flex; flex-direction:column; gap:4px; margin:8px 0; }
+  .field label{ font-size:0.85rem; color:var(--sub); }
+  .field input{
+    border:2px solid var(--ink); border-radius:8px; padding:9px 10px;
+    font-size:1rem; font-family:inherit; width:100%; background:#fff;
+  }
+  .result{
+    margin-top:16px; padding:14px 16px; background:#fff;
+    border:2px dashed var(--down); border-radius:10px; font-size:1rem;
+  }
+  .result b{ color:var(--down); }
+  .checklist{
+    background:var(--paper); border:2px solid var(--ink); border-radius:14px;
+    padding:22px 24px; box-shadow:5px 5px 0 var(--ink);
+  }
+  .checklist ul{ margin:0; padding-left:20px; }
+  .checklist li{ margin:10px 0; }
+  .checklist li b{ color:var(--up); }
+  .navrow{ display:flex; justify-content:space-between; gap:12px; margin-top:56px; font-size:0.92rem; flex-wrap:wrap; }
+  .navrow a{
+    color:var(--ink); text-decoration:none; border:2px solid var(--ink); border-radius:10px;
+    padding:10px 16px; box-shadow:3px 3px 0 var(--ink); background:#fff;
+  }
+  footer{ margin-top:56px; padding-top:20px; border-top:3px solid var(--ink); font-size:0.88rem; color:var(--sub); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="breadcrumb"><a href="./index.html">📚 주식 공부 아카이브</a> / 1장</div>
+
+  <div class="hero">
+    <h1>주식이란<br><span class="accent">무엇인가</span> 🏢🧩</h1>
+    <p>&ldquo;주식을 산다&rdquo;는 게 정확히 뭘 사는 건지부터 짚고 넘어가자. 이게 헷갈리면
+    나중에 나오는 개념들도 다 헷갈려.</p>
+  </div>
+
+  <section>
+    <h2><span class="num">1</span> 주식 = 회사를 잘게 쪼갠 조각</h2>
+    <p>회사 하나를 피자 한 판이라고 생각해봐. 이 피자를 100조각으로 잘라서 사람들한테
+    나눠 판다면, 그 조각 하나하나가 바로 <b>주식(1주)</b>이야.</p>
+    <p>조각을 하나 사면, 나는 그 회사의 <b>진짜 주인 중 한 명</b>이 되는 거야. 회사가 돈을 잘 벌면
+    내가 가진 조각의 가치도 같이 올라가고, 회사가 이익을 나눠주면(배당) 내 몫도 받을 수 있어.</p>
+    <div class="chart-card"><div id="chart-pizza"></div></div>
+    <p class="caption" style="text-align:center;font-size:0.85rem;color:var(--sub);">
+      회사를 100조각으로 나눴다면, 3조각을 가진 사람은 이 회사의 3%를 소유한 거야.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span> 이 조각은 어디서 사고팔까?</h2>
+    <p>회사가 처음으로 &ldquo;우리 회사 주식 조각을 팔게요&rdquo; 하고 세상에 내놓는 걸
+    <b>상장(IPO)</b>이라고 해. 이때 회사가 투자자에게 직접 주식을 파는 시장을 <b>발행시장</b>이라고 불러.</p>
+    <p>그 이후로 우리가 평소에 &ldquo;주식 산다&rdquo;고 하는 건 대부분 이미 상장된 주식을
+    다른 투자자와 사고파는 거야. 이걸 <b>유통시장</b>이라고 하고, 코스피·코스닥 같은
+    <b>거래소</b>가 바로 이 유통시장이 열리는 장터야. 회사가 직접 관여하지 않고, 투자자들끼리
+    가격을 흥정하듯 사고파는 곳이지.</p>
+    <div class="note"><b>ㅎㅎ 팁:</b> 그래서 내가 삼성전자 주식을 사도, 그 돈이 삼성전자로
+    바로 들어가는 게 아니야. 이미 그 주식을 갖고 있던 다른 투자자에게 돈이 가는 거지 (상장할 때 산 게 아니라면).</div>
+  </section>
+
+  <section>
+    <h2><span class="num">3</span> 시가총액 — 회사 전체의 가격표</h2>
+    <p>주식 한 조각의 가격(<b>주가</b>)에 회사가 발행한 전체 조각 수(<b>발행주식수</b>)를 곱하면,
+    &ldquo;이 회사를 통째로 사려면 얼마가 필요할까&rdquo;를 알 수 있어. 이걸 <b>시가총액(시총)</b>이라고 해.</p>
+    <p style="text-align:center; font-family:'Gaegu',sans-serif; font-size:1.3rem; margin:20px 0;">
+      시가총액 = 주가 &times; 발행주식수
+    </p>
+
+    <div class="lab">
+      <h3>🧮 직접 계산해보기</h3>
+      <div class="sub">주가와 발행주식수를 바꿔보면서 시가총액이 어떻게 변하는지 확인해봐.</div>
+      <div class="grid2">
+        <div class="field">
+          <label>주가 (원)</label>
+          <input type="number" id="mc-price" value="70000" min="0" step="100">
+        </div>
+        <div class="field">
+          <label>발행주식수 (주)</label>
+          <input type="number" id="mc-shares" value="5969782550" min="0" step="1000000">
+        </div>
+      </div>
+      <div class="result" id="mc-result">계산 중...</div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">4</span> 주가는 왜 오르내릴까?</h2>
+    <p>가장 기본적인 원리는 <b>수요와 공급</b>이야. 사고 싶어하는 사람(수요)이 팔고 싶어하는
+    사람(공급)보다 많으면 가격이 올라가고, 반대면 내려가.</p>
+    <div class="chart-card"><div id="chart-seesaw"></div></div>
+    <p>그럼 뭐가 사람들의 &ldquo;사고 싶다 / 팔고 싶다&rdquo; 마음을 움직일까?</p>
+    <div class="checklist">
+      <ul>
+        <li><b>실적</b> — 회사가 돈을 잘 벌었다는 소식(호실적)이 나오면 사고 싶은 사람이 늘어</li>
+        <li><b>뉴스·이벤트</b> — 신제품 발표, 계약 체결, 규제 변화 같은 소식</li>
+        <li><b>거시경제</b> — 금리, 환율, 경기 전반의 분위기</li>
+        <li><b>투자 심리</b> — 사람들의 기대와 불안 (7장에서 더 자세히 다뤄)</li>
+      </ul>
+    </div>
+    <div class="note"><b>ㅎㅎ 팁:</b> 회사 실적이 진짜 좋아졌어도 주가가 안 오르는 경우도 많아.
+    이미 사람들이 &ldquo;좋아질 거야&rdquo라고 기대하고 미리 사놨다면(선반영), 막상 발표 때는
+    &ldquo;예상한 만큼이네&rdquo하고 오히려 빠지기도 해. 그래서 주가는 항상 <b>현재</b>가 아니라
+    <b>기대</b>를 반영한다는 말도 나오는 거야.</div>
+  </section>
+
+  <section>
+    <h2><span class="num">5</span> 한눈에 정리</h2>
+    <div class="checklist">
+      <ul>
+        <li><b>주식</b> — 회사를 잘게 쪼갠 소유권 조각 한 개</li>
+        <li><b>발행시장</b> — 회사가 처음 투자자에게 주식을 파는 곳 (IPO)</li>
+        <li><b>유통시장</b> — 이미 있는 주식을 투자자끼리 사고파는 거래소</li>
+        <li><b>시가총액</b> — 주가 &times; 발행주식수 = 회사 전체의 가격표</li>
+        <li><b>주가 변동</b> — 결국 수요와 공급, 그 뒤에 실적·뉴스·심리가 있음</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="navrow">
+    <a href="./index.html">← 목차로</a>
+    <a href="./chart-guide.html">2장. 차트 읽는 법 →</a>
+  </div>
+
+  <footer>
+    이 문서의 예시와 숫자는 설명을 위한 가상의 데이터야 (시가총액 계산기의 기본값은 실제 공개된
+    수치를 참고했지만 실시간 값이 아니야). 실제 투자 판단은 여러 정보를 함께 보고 신중하게 하는 걸 추천해 🙏
+  </footer>
+
+</div>
+
+<script>
+const colorMap = { up:'#D6455A', down:'#2E6B8A', mustard:'#E3A73F', ink:'#23262B', sub:'#6C7268' };
+
+function renderPizza(){
+  const W = 640, H = 260;
+  const cx = 150, cy = 130, r = 100;
+  const total = 100, mine = 3;
+  let s = `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" font-family="Gowun Dodum, sans-serif">`;
+  for(let i=0;i<total;i++){
+    const a0 = (i/total)*2*Math.PI - Math.PI/2;
+    const a1 = ((i+1)/total)*2*Math.PI - Math.PI/2;
+    const x0 = cx + r*Math.cos(a0), y0 = cy + r*Math.sin(a0);
+    const x1 = cx + r*Math.cos(a1), y1 = cy + r*Math.sin(a1);
+    const fill = i < mine ? colorMap.up : '#fff';
+    s += `<path d="M${cx},${cy} L${x0.toFixed(2)},${y0.toFixed(2)} A${r},${r} 0 0 1 ${x1.toFixed(2)},${y1.toFixed(2)} Z" fill="${fill}" stroke="${colorMap.ink}" stroke-width="0.7"/>`;
+  }
+  s += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${colorMap.ink}" stroke-width="2.5"/>`;
+  s += `<text x="${cx}" y="${cy+r+34}" font-size="13" fill="${colorMap.ink}" text-anchor="middle">회사 전체 = 100조각</text>`;
+
+  const lx = 320, ly = 60;
+  s += `<rect x="${lx}" y="${ly}" width="14" height="14" fill="${colorMap.up}" rx="2"/>`;
+  s += `<text x="${lx+22}" y="${ly+12}" font-size="13" fill="${colorMap.ink}">내가 가진 3조각 (3%)</text>`;
+  s += `<rect x="${lx}" y="${ly+28}" width="14" height="14" fill="#fff" stroke="${colorMap.ink}" stroke-width="1.5" rx="2"/>`;
+  s += `<text x="${lx+22}" y="${ly+40}" font-size="13" fill="${colorMap.ink}">다른 주주들의 97조각</text>`;
+  s += `<text x="${lx}" y="${ly+82}" font-size="13" fill="${colorMap.sub}">→ 나는 이 회사의</text>`;
+  s += `<text x="${lx}" y="${ly+104}" font-size="20" fill="${colorMap.up}" font-weight="bold" font-family="Gaegu, sans-serif">3% 주인이야</text>`;
+  s += `</svg>`;
+  document.getElementById('chart-pizza').innerHTML = s;
+}
+
+function renderSeesaw(){
+  const W = 640, H = 220;
+  let s = `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" font-family="Gowun Dodum, sans-serif">`;
+  const cx = W/2, baseY = 170, pivotH = 40;
+  s += `<polygon points="${cx-24},${baseY} ${cx+24},${baseY} ${cx},${baseY-pivotH}" fill="${colorMap.ink}"/>`;
+  const angle = -8;
+  const barLen = 240;
+  const rad = angle * Math.PI/180;
+  const leftX = cx - barLen/2*Math.cos(rad), leftY = (baseY-pivotH) - barLen/2*Math.sin(rad)*-1 + barLen/2*Math.sin(-rad);
+  const x1 = cx - barLen/2*Math.cos(-rad);
+  const y1 = (baseY-pivotH) + barLen/2*Math.sin(-rad);
+  const x2 = cx + barLen/2*Math.cos(-rad);
+  const y2 = (baseY-pivotH) - barLen/2*Math.sin(-rad);
+  s += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${colorMap.ink}" stroke-width="5" stroke-linecap="round"/>`;
+  s += `<circle cx="${x1.toFixed(1)}" cy="${(y1-26).toFixed(1)}" r="24" fill="${colorMap.up}"/>`;
+  s += `<text x="${x1.toFixed(1)}" y="${(y1-22).toFixed(1)}" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">사고싶어요</text>`;
+  s += `<circle cx="${x2.toFixed(1)}" cy="${(y2-14).toFixed(1)}" r="16" fill="${colorMap.down}"/>`;
+  s += `<text x="${x2.toFixed(1)}" y="${(y2-11).toFixed(1)}" font-size="10.5" fill="#fff" text-anchor="middle" font-weight="bold">팔래요</text>`;
+  s += `<text x="${cx}" y="${H-14}" font-size="13" fill="${colorMap.up}" text-anchor="middle" font-weight="bold">사려는 사람이 많으면 → 가격 상승 📈</text>`;
+  s += `</svg>`;
+  document.getElementById('chart-seesaw').innerHTML = s;
+}
+
+function fmtWon(n){
+  if(!isFinite(n)) return '-';
+  return n.toLocaleString('ko-KR');
+}
+function tierText(mc){
+  if(mc >= 300e12) return '코스피 최상위권(대형 IT/반도체 대장주급) 규모야.';
+  if(mc >= 50e12) return '코스피 상위권 대기업 규모야.';
+  if(mc >= 5e12) return '코스피 중견 기업 규모야.';
+  if(mc >= 5e11) return '코스닥 중형주 정도 규모야.';
+  return '소형주 규모야.';
+}
+function updateMarketCap(){
+  const price = parseFloat(document.getElementById('mc-price').value) || 0;
+  const shares = parseFloat(document.getElementById('mc-shares').value) || 0;
+  const mc = price * shares;
+  const el = document.getElementById('mc-result');
+  el.innerHTML = `시가총액 = ${fmtWon(price)}원 &times; ${fmtWon(shares)}주 = <b>약 ${fmtWon(Math.round(mc))}원</b><br>
+    <span style="color:var(--sub); font-size:0.9rem;">→ ${tierText(mc)}</span>`;
+}
+document.getElementById('mc-price').addEventListener('input', updateMarketCap);
+document.getElementById('mc-shares').addEventListener('input', updateMarketCap);
+
+renderPizza();
+renderSeesaw();
+updateMarketCap();
+</script>
+</body>
+</html>

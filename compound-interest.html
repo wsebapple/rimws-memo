@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>복리와 장기투자</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAFAF5; --grid:#E4E7DD; --paper:#FFFFFF; --ink:#23262B;
+    --sub:#6C7268; --up:#D6455A; --down:#2E6B8A; --mustard:#E3A73F;
+  }
+  *{box-sizing:border-box;}
+  html{ color-scheme: light; }
+  html,body{margin:0;padding:0;}
+  body{
+    background-color:var(--bg);
+    background-image:
+      repeating-linear-gradient(0deg, var(--grid) 0px, var(--grid) 1px, transparent 1px, transparent 32px),
+      repeating-linear-gradient(90deg, var(--grid) 0px, var(--grid) 1px, transparent 1px, transparent 32px);
+    color:var(--ink); font-family:'Gowun Dodum', sans-serif; line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{ max-width:660px; margin:0 auto; padding:44px 22px 90px; }
+  h1,h2,h3{ font-family:'Gaegu', sans-serif; font-weight:700; color:var(--ink); margin:0; }
+  .breadcrumb{ font-size:0.85rem; color:var(--sub); margin-bottom:18px; }
+  .breadcrumb a{ color:var(--sub); }
+  .hero{ text-align:left; padding-bottom:28px; margin-bottom:34px; border-bottom:3px solid var(--ink); }
+  .hero h1{ font-size:2.2rem; line-height:1.3; }
+  .hero .accent{ color:var(--up); }
+  .hero p{ font-size:1.05rem; color:var(--sub); margin-top:14px; max-width:520px; }
+  section{ margin:56px 0; }
+  section h2{ font-size:1.5rem; margin-bottom:14px; display:flex; align-items:baseline; gap:10px; }
+  section h2 .num{ font-family:'Gaegu', sans-serif; color:var(--up); font-size:1.6rem; }
+  section p{ font-size:1rem; margin:12px 0; }
+  .chart-card{
+    background:var(--paper); border:2px solid var(--ink); border-radius:14px;
+    padding:18px 14px; margin:22px 0; box-shadow:5px 5px 0 var(--ink);
+  }
+  .note{
+    background:#FFF6E4; border:2px dashed var(--mustard); border-radius:10px;
+    padding:14px 16px; font-size:0.95rem; margin:18px 0;
+  }
+  .note b{ color:#9c6d17; }
+  .lab{
+    background:#EAF2F5; border:2px solid var(--down); border-radius:14px;
+    padding:20px 18px; margin:26px 0; box-shadow:5px 5px 0 var(--down);
+  }
+  .lab h3{ margin:0 0 4px; font-size:1.25rem; color:var(--down); }
+  .lab .sub{ font-size:0.88rem; color:var(--sub); margin-bottom:14px; }
+  .grid3{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+  @media(max-width:480px){ .grid3{ grid-template-columns:1fr; } }
+  .field{ display:flex; flex-direction:column; gap:4px; }
+  .field label{ font-size:0.85rem; color:var(--sub); }
+  .field input{
+    border:2px solid var(--ink); border-radius:8px; padding:9px 10px;
+    font-size:1rem; font-family:inherit; width:100%; background:#fff;
+  }
+  .legend{ display:flex; gap:18px; flex-wrap:wrap; font-size:0.85rem; color:var(--sub); margin-top:8px; }
+  .legend span{ display:inline-flex; align-items:center; gap:6px; }
+  .dot{ width:12px; height:12px; border-radius:3px; display:inline-block; }
+  .result{
+    margin-top:16px; padding:14px 16px; background:#fff;
+    border:2px dashed var(--down); border-radius:10px; font-size:0.98rem;
+  }
+  .result b{ color:var(--down); }
+  .result .row{ display:flex; justify-content:space-between; margin:6px 0; }
+  .checklist{
+    background:var(--paper); border:2px solid var(--ink); border-radius:14px;
+    padding:22px 24px; box-shadow:5px 5px 0 var(--ink);
+  }
+  .checklist ul{ margin:0; padding-left:20px; }
+  .checklist li{ margin:10px 0; }
+  .checklist li b{ color:var(--up); }
+  .navrow{ display:flex; justify-content:space-between; gap:12px; margin-top:56px; font-size:0.92rem; flex-wrap:wrap; }
+  .navrow a{
+    color:var(--ink); text-decoration:none; border:2px solid var(--ink); border-radius:10px;
+    padding:10px 16px; box-shadow:3px 3px 0 var(--ink); background:#fff;
+  }
+  footer{ margin-top:56px; padding-top:20px; border-top:3px solid var(--ink); font-size:0.88rem; color:var(--sub); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="breadcrumb"><a href="./index.html">📚 주식 공부 아카이브</a> / 6장</div>
+
+  <div class="hero">
+    <h1>복리와<br><span class="accent">장기투자</span> ⛄📈</h1>
+    <p>아인슈타인이 &ldquo;세계 8대 불가사의&rdquo라고 불렀다는 말이 있을 만큼, 복리는
+    시간이 편이 되어주는 마법 같은 힘이야. 눈덩이 굴리듯 원리를 알아보자.</p>
+  </div>
+
+  <section>
+    <h2><span class="num">1</span> 단리 vs 복리 — 눈덩이 이야기</h2>
+    <p><b>단리</b>는 매년 처음 원금에 대해서만 이자가 붙는 거야. 눈덩이를 매번 같은 크기로만
+    굴리는 것과 비슷해. 반면 <b>복리</b>는 이자에 또 이자가 붙어. 언덕에서 눈덩이를 굴리면
+    구를수록 눈이 더 많이 붙어서 점점 빨리 커지는 것처럼, 원금이 계속 불어나면서 불어나는
+    속도 자체도 빨라져.</p>
+    <div class="chart-card"><div id="chart-compare"></div></div>
+    <div class="legend">
+      <span><span class="dot" style="background:var(--down)"></span>단리 (매년 원금 100만원 기준 이자만)</span>
+      <span><span class="dot" style="background:var(--up)"></span>복리 (이자에도 이자가 붙음)</span>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span> 직접 눈덩이를 굴려보기</h2>
+    <div class="lab">
+      <h3>🧮 복리 계산기</h3>
+      <div class="sub">원금, 연 수익률, 투자 기간을 바꿔보면서 최종 금액이 어떻게 커지는지 확인해봐.</div>
+      <div class="grid3">
+        <div class="field"><label>원금 (원)</label><input type="number" id="ci-principal" value="10000000" step="100000"></div>
+        <div class="field"><label>연 수익률 (%)</label><input type="number" id="ci-rate" value="8" step="0.5"></div>
+        <div class="field"><label>투자 기간 (년)</label><input type="number" id="ci-years" value="20" step="1" min="1" max="50"></div>
+      </div>
+      <div class="chart-card" style="margin-bottom:0;"><div id="chart-growth"></div></div>
+      <div class="result" id="ci-result">계산 중...</div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">3</span> 72의 법칙 — 두 배가 되는 시간 암산하기</h2>
+    <p>정확한 계산 없이도 &ldquo;내 돈이 두 배가 되는 데 몇 년 걸릴까&rdquo를 대충 알 수 있는
+    꿀팁이 있어. 72를 연 수익률로 나누면 돼.</p>
+    <p style="text-align:center; font-family:'Gaegu',sans-serif; font-size:1.3rem; margin:20px 0;">
+      두 배가 되는 기간(년) &asymp; 72 &divide; 연 수익률(%)
+    </p>
+    <div class="checklist">
+      <ul>
+        <li>연 수익률 <b>6%</b> → 72÷6 = <b>약 12년</b>이면 원금이 두 배</li>
+        <li>연 수익률 <b>8%</b> → 72÷8 = <b>약 9년</b>이면 원금이 두 배</li>
+        <li>연 수익률 <b>12%</b> → 72÷12 = <b>약 6년</b>이면 원금이 두 배</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">4</span> 왜 오래 갖고 있는 게 유리할까?</h2>
+    <p>복리는 시간이 길어질수록 뒤로 갈수록 불어나는 속도가 빨라지는 구조야. 그래서 초반
+    몇 년은 성장이 느려 보여도, 후반에 갈수록 그래프가 확 꺾여 올라가는 걸 볼 수 있어
+    (위 그래프에서도 확인해봐).</p>
+    <p>또, 짧은 기간에는 주가 등락(변동성)이 커 보여도 기간이 길어질수록 그 등락은 평균으로
+    수렴하는 경향이 있어서, 장기투자는 단기 변동성의 &ldquo;노이즈&rdquo에 덜 휘둘리게 도와줘.</p>
+    <div class="note"><b>ㅎㅎ 팁:</b> 그렇다고 무조건 오래 들고만 있으면 되는 건 아니야. 애초에
+    좋은 자산을 골라야 복리 효과도 의미가 있어. 나쁜 자산은 오래 들고 있어도 그냥 계속 나빠.</div>
+  </section>
+
+  <section>
+    <h2><span class="num">5</span> 한눈에 정리</h2>
+    <div class="checklist">
+      <ul>
+        <li><b>단리</b> — 원금에만 이자, 매년 같은 크기로 증가</li>
+        <li><b>복리</b> — 이자에도 이자가 붙어 갈수록 증가 속도가 빨라짐</li>
+        <li><b>72의 법칙</b> — 72 &divide; 연 수익률 &asymp; 원금이 2배 되는 기간</li>
+        <li><b>장기투자</b> — 복리 효과 극대화 + 단기 변동성 노이즈 완화</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="navrow">
+    <a href="./risk-management.html">← 5장. 리스크 관리</a>
+    <a href="./index.html">목차로</a>
+    <a href="./investor-psychology.html">7장. 투자 심리 함정 →</a>
+  </div>
+
+  <footer>
+    이 문서의 예시 숫자는 설명을 위한 가상의 데이터야. 실제 투자 판단은 여러 정보를 함께 보고
+    신중하게 하는 걸 추천해 🙏
+  </footer>
+
+</div>
+
+<script>
+const colorMap = { up:'#D6455A', down:'#2E6B8A', mustard:'#E3A73F', ink:'#23262B', sub:'#6C7268' };
+
+function renderCompare(){
+  const years = 20, principal = 1000000, rate = 0.08;
+  const simple = years+1, compoundArr = years+1;
+  const simpleVals = [], compoundVals = [];
+  for(let y=0;y<=years;y++){
+    simpleVals.push(principal + principal*rate*y);
+    compoundVals.push(principal * Math.pow(1+rate, y));
+  }
+  const W = 640, H = 240;
+  const marginL = 56, marginR = 16, marginT = 16, marginB = 26;
+  const plotW = W-marginL-marginR, plotH = H-marginT-marginB;
+  const maxV = Math.max(...compoundVals);
+  const y = (v)=> marginT + (1 - v/maxV) * plotH;
+  const x = (i)=> marginL + (plotW/years)*i;
+
+  let s = `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" font-family="Gowun Dodum, sans-serif">`;
+  [0,0.25,0.5,0.75,1].forEach(t=>{
+    const v = maxV*t;
+    const yy = y(v);
+    s += `<line x1="${marginL}" y1="${yy}" x2="${W-marginR}" y2="${yy}" stroke="#E9EAE2" stroke-width="1"/>`;
+    s += `<text x="${marginL-8}" y="${yy+3}" font-size="10" fill="${colorMap.sub}" text-anchor="end">${Math.round(v/10000)}만</text>`;
+  });
+  function lineOf(vals,color){
+    let d='';
+    vals.forEach((v,i)=>{ d += (d===''?'M':'L') + x(i).toFixed(1)+','+y(v).toFixed(1)+' '; });
+    return `<path d="${d}" fill="none" stroke="${color}" stroke-width="2.4"/>`;
+  }
+  s += lineOf(simpleVals, colorMap.down);
+  s += lineOf(compoundVals, colorMap.up);
+  s += `<text x="${marginL}" y="${H-6}" font-size="10" fill="${colorMap.sub}">0년</text>`;
+  s += `<text x="${W-marginR}" y="${H-6}" font-size="10" fill="${colorMap.sub}" text-anchor="end">${years}년</text>`;
+  s += `</svg>`;
+  document.getElementById('chart-compare').innerHTML = s;
+}
+
+function fmtWon(n){ return isFinite(n) ? Math.round(n).toLocaleString('ko-KR') : '-'; }
+
+function renderGrowth(vals){
+  const W = 640, H = 220;
+  const marginL = 50, marginR = 12, marginT = 14, marginB = 24;
+  const plotW = W-marginL-marginR, plotH = H-marginT-marginB;
+  const n = vals.length;
+  const maxV = Math.max(...vals);
+  const slot = plotW/n;
+  const bw = Math.max(slot*0.6, 1.5);
+  const y = (v)=> marginT + (1 - v/maxV) * plotH;
+
+  let s = `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" font-family="Gowun Dodum, sans-serif">`;
+  [0,0.5,1].forEach(t=>{
+    const v = maxV*t, yy = y(v);
+    s += `<line x1="${marginL}" y1="${yy}" x2="${W-marginR}" y2="${yy}" stroke="#E9EAE2" stroke-width="1"/>`;
+    s += `<text x="${marginL-8}" y="${yy+3}" font-size="10" fill="${colorMap.sub}" text-anchor="end">${fmtWon(v/10000)}만</text>`;
+  });
+  vals.forEach((v,i)=>{
+    const xx = marginL + slot*i + (slot-bw)/2;
+    const yy = y(v);
+    s += `<rect x="${xx.toFixed(1)}" y="${yy.toFixed(1)}" width="${bw.toFixed(1)}" height="${(y(0)-yy).toFixed(1)}" fill="${colorMap.up}" rx="1.5"/>`;
+  });
+  s += `<text x="${marginL}" y="${H-6}" font-size="10" fill="${colorMap.sub}">0년</text>`;
+  s += `<text x="${W-marginR}" y="${H-6}" font-size="10" fill="${colorMap.sub}" text-anchor="end">${n-1}년</text>`;
+  s += `</svg>`;
+  document.getElementById('chart-growth').innerHTML = s;
+}
+
+function updateCI(){
+  const principal = parseFloat(document.getElementById('ci-principal').value) || 0;
+  const rate = (parseFloat(document.getElementById('ci-rate').value) || 0) / 100;
+  let years = parseInt(document.getElementById('ci-years').value) || 0;
+  years = Math.max(1, Math.min(50, years));
+  const vals = [];
+  for(let y=0;y<=years;y++) vals.push(principal * Math.pow(1+rate, y));
+  renderGrowth(vals);
+  const final = vals[years];
+  const totalReturn = final - principal;
+  const doubleYears = rate > 0 ? (72/(rate*100)).toFixed(1) : '-';
+  document.getElementById('ci-result').innerHTML = `
+    <div class="row"><span>${years}년 후 최종 금액</span><b>${fmtWon(final)}원</b></div>
+    <div class="row"><span>총 수익 (원금 대비)</span><b style="color:${colorMap.up}">+${fmtWon(totalReturn)}원</b></div>
+    <div class="row"><span>72의 법칙: 원금 2배 되는 기간</span><b>약 ${doubleYears}년</b></div>
+  `;
+}
+['ci-principal','ci-rate','ci-years'].forEach(id=> document.getElementById(id).addEventListener('input', updateCI));
+
+renderCompare();
+updateCI();
+</script>
+</body>
+</html>
