@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>투자 심리 함정</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAFAF5; --grid:#E4E7DD; --paper:#FFFFFF; --ink:#23262B;
+    --sub:#6C7268; --up:#D6455A; --down:#2E6B8A; --mustard:#E3A73F;
+  }
+  *{box-sizing:border-box;}
+  html{ color-scheme: light; }
+  html,body{margin:0;padding:0;}
+  body{
+    background-color:var(--bg);
+    background-image:
+      repeating-linear-gradient(0deg, var(--grid) 0px, var(--grid) 1px, transparent 1px, transparent 32px),
+      repeating-linear-gradient(90deg, var(--grid) 0px, var(--grid) 1px, transparent 1px, transparent 32px);
+    color:var(--ink); font-family:'Gowun Dodum', sans-serif; line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{ max-width:660px; margin:0 auto; padding:44px 22px 90px; }
+  h1,h2,h3{ font-family:'Gaegu', sans-serif; font-weight:700; color:var(--ink); margin:0; }
+  .breadcrumb{ font-size:0.85rem; color:var(--sub); margin-bottom:18px; }
+  .breadcrumb a{ color:var(--sub); }
+  .hero{ text-align:left; padding-bottom:28px; margin-bottom:34px; border-bottom:3px solid var(--ink); }
+  .hero h1{ font-size:2.2rem; line-height:1.3; }
+  .hero .accent{ color:var(--up); }
+  .hero p{ font-size:1.05rem; color:var(--sub); margin-top:14px; max-width:520px; }
+  section{ margin:56px 0; }
+  section h2{ font-size:1.5rem; margin-bottom:14px; display:flex; align-items:baseline; gap:10px; }
+  section h2 .num{ font-family:'Gaegu', sans-serif; color:var(--up); font-size:1.6rem; }
+  section p{ font-size:1rem; margin:12px 0; }
+  .chart-card{
+    background:var(--paper); border:2px solid var(--ink); border-radius:14px;
+    padding:18px 14px; margin:22px 0; box-shadow:5px 5px 0 var(--ink);
+  }
+  .trap{
+    background:var(--paper); border:2px solid var(--ink); border-radius:14px;
+    padding:16px 18px; margin:18px 0; box-shadow:4px 4px 0 var(--ink);
+  }
+  .trap h4{ font-family:'Gaegu',sans-serif; font-size:1.15rem; margin:0 0 6px; color:var(--up); }
+  .trap p{ margin:6px 0; font-size:0.95rem; }
+  .note{
+    background:#FFF6E4; border:2px dashed var(--mustard); border-radius:10px;
+    padding:14px 16px; font-size:0.95rem; margin:18px 0;
+  }
+  .note b{ color:#9c6d17; }
+  .lab{
+    background:#EAF2F5; border:2px solid var(--down); border-radius:14px;
+    padding:20px 18px; margin:26px 0; box-shadow:5px 5px 0 var(--down);
+  }
+  .lab h3{ margin:0 0 4px; font-size:1.25rem; color:var(--down); }
+  .lab .sub{ font-size:0.88rem; color:var(--sub); margin-bottom:14px; }
+  .quiz label{
+    display:flex; align-items:flex-start; gap:10px; background:#fff; border:2px solid var(--ink);
+    border-radius:10px; padding:10px 12px; margin:8px 0; font-size:0.94rem; cursor:pointer;
+  }
+  .quiz input{ margin-top:3px; }
+  .result{
+    margin-top:16px; padding:14px 16px; background:#fff;
+    border:2px dashed var(--down); border-radius:10px; font-size:0.98rem;
+  }
+  .result b{ color:var(--down); }
+  .checklist{
+    background:var(--paper); border:2px solid var(--ink); border-radius:14px;
+    padding:22px 24px; box-shadow:5px 5px 0 var(--ink);
+  }
+  .checklist ul{ margin:0; padding-left:20px; }
+  .checklist li{ margin:10px 0; }
+  .checklist li b{ color:var(--up); }
+  .navrow{ display:flex; justify-content:space-between; gap:12px; margin-top:56px; font-size:0.92rem; flex-wrap:wrap; }
+  .navrow a{
+    color:var(--ink); text-decoration:none; border:2px solid var(--ink); border-radius:10px;
+    padding:10px 16px; box-shadow:3px 3px 0 var(--ink); background:#fff;
+  }
+  footer{ margin-top:56px; padding-top:20px; border-top:3px solid var(--ink); font-size:0.88rem; color:var(--sub); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="breadcrumb"><a href="./index.html">📚 주식 공부 아카이브</a> / 7장</div>
+
+  <div class="hero">
+    <h1>투자 심리<br><span class="accent">함정</span> 🧠🕳️</h1>
+    <p>차트와 재무제표를 완벽하게 분석해도, 결국 버튼을 누르는 건 사람이야. 우리 뇌가
+    투자할 때 자주 빠지는 함정들을 알아두면 절반은 방어한 거야.</p>
+  </div>
+
+  <section>
+    <h2><span class="num">1</span> 손실회피 — 잃는 게 훨씬 아프다</h2>
+    <p>사람은 똑같은 크기라도 <b>얻었을 때의 기쁨보다 잃었을 때의 고통을 약 2배 더 크게</b>
+    느낀다는 연구가 있어. 그래서 이익은 나면 빨리 팔아버리고(더 오를 수 있는데도), 손실은
+    나면 &ldquo;다시 오르겠지&rdquo하며 오래 붙들고 있는 경우가 많아 — 사실은 반대로 해야
+    할 때가 많은데도 말이야.</p>
+    <div class="chart-card"><div id="chart-lossaversion"></div></div>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span> 자주 빠지는 함정들</h2>
+    <div class="trap">
+      <h4>FOMO (놓칠까봐 불안한 마음)</h4>
+      <p>이미 많이 오른 종목을 보고 &ldquo;나만 안 사면 손해&rdquo라는 조급함에 고점에서
+      뛰어드는 경우. 오른 이유를 스스로 분석하지 않고 남들 따라가는 게 특징이야.</p>
+    </div>
+    <div class="trap">
+      <h4>확증편향</h4>
+      <p>일단 주식을 사고 나면, 그 종목에 대한 좋은 뉴스만 눈에 들어오고 나쁜 뉴스는
+      무시하게 되는 현상. 내 판단이 맞다는 걸 확인해주는 정보만 골라 보게 돼.</p>
+    </div>
+    <div class="trap">
+      <h4>매몰비용 오류</h4>
+      <p>&ldquo;이미 이만큼 물렸는데 지금 팔면 손해가 확정되잖아&rdquo하며 이미 써버린
+      돈(매몰비용)에 집착해서 더 나쁜 결정을 이어가는 것. 중요한 건 과거에 얼마를 썼는지가
+      아니라 지금부터의 전망이야.</p>
+    </div>
+    <div class="trap">
+      <h4>과신 편향</h4>
+      <p>몇 번 수익을 내고 나면 &ldquo;나는 감이 좋다&rdquo고 착각해서 리스크 관리를 소홀히
+      하게 되는 것. 운과 실력을 구분하기가 생각보다 어려워.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">3</span> 내 투자 습관 자가진단</h2>
+    <div class="lab">
+      <h3>✅ 해당하는 항목을 체크해봐</h3>
+      <div class="sub">체크가 많을수록 심리적 함정에 자주 빠지고 있을 가능성이 높아.</div>
+      <div class="quiz">
+        <label><input type="checkbox" class="q"> 오른 주식을 보면 이유도 모른 채 따라 사고 싶어진다</label>
+        <label><input type="checkbox" class="q"> 손실 중인 종목을 &ldquo;본전만 되면 판다&rdquo며 계속 들고 있다</label>
+        <label><input type="checkbox" class="q"> 산 종목의 나쁜 뉴스는 애써 무시하게 된다</label>
+        <label><input type="checkbox" class="q"> 수익이 조금만 나도 불안해서 바로 팔아버린다</label>
+        <label><input type="checkbox" class="q"> 손절 원칙을 정해도 막상 그 가격이 오면 안 지킨다</label>
+        <label><input type="checkbox" class="q"> 몇 번 수익 후엔 평소보다 더 큰 금액을 베팅한다</label>
+      </div>
+      <div class="result" id="quiz-result">체크박스를 눌러봐.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">4</span> 한눈에 정리</h2>
+    <div class="checklist">
+      <ul>
+        <li><b>손실회피</b> — 잃는 고통이 얻는 기쁨보다 크게 느껴져 비합리적 판단을 유도</li>
+        <li><b>FOMO</b> — 놓칠까봐 불안해서 고점에 따라 사는 것</li>
+        <li><b>확증편향</b> — 내 판단을 지지하는 정보만 보이는 현상</li>
+        <li><b>매몰비용 오류</b> — 이미 쓴 돈에 집착해 더 나쁜 결정을 하는 것</li>
+        <li><b>대응법</b> — 사기 전에 원칙(손절선, 매수 이유)을 미리 정해두고 기계적으로 지키기</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="navrow">
+    <a href="./compound-interest.html">← 6장. 복리와 장기투자</a>
+    <a href="./index.html">목차로</a>
+    <a href="./glossary.html">부록. 용어사전 →</a>
+  </div>
+
+  <footer>
+    이 문서의 자가진단은 참고용이야. 실제 투자 판단은 여러 정보를 함께 보고 신중하게 하는 걸 추천해 🙏
+  </footer>
+
+</div>
+
+<script>
+const colorMap = { up:'#D6455A', down:'#2E6B8A', mustard:'#E3A73F', ink:'#23262B', sub:'#6C7268' };
+
+function renderLossAversion(){
+  const W = 640, H = 260;
+  const cx = W/2, cy = H/2;
+  const scaleX = 220, scaleUp = 1.0, scaleDown = 2.0;
+  let s = `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" font-family="Gowun Dodum, sans-serif">`;
+  s += `<line x1="${cx-scaleX}" y1="${cy}" x2="${cx+scaleX}" y2="${cy}" stroke="${colorMap.ink}" stroke-width="1.5"/>`;
+  s += `<line x1="${cx}" y1="30" x2="${cx}" y2="${H-20}" stroke="${colorMap.ink}" stroke-width="1.5"/>`;
+  s += `<text x="${cx+scaleX}" y="${cy+18}" font-size="11" fill="${colorMap.sub}" text-anchor="end">얻음 →</text>`;
+  s += `<text x="${cx-scaleX}" y="${cy+18}" font-size="11" fill="${colorMap.sub}">← 잃음</text>`;
+  s += `<text x="${cx+10}" y="42" font-size="11" fill="${colorMap.sub}">기쁨/고통</text>`;
+
+  // gain curve (right, gentle)
+  let dGain = '';
+  for(let i=0;i<=100;i++){
+    const t = i/100;
+    const x = cx + t*scaleX;
+    const val = Math.pow(t, 0.7) * 70 * scaleUp;
+    const y = cy - val;
+    dGain += (dGain===''?'M':'L') + x.toFixed(1)+','+y.toFixed(1)+' ';
+  }
+  s += `<path d="${dGain}" fill="none" stroke="${colorMap.up}" stroke-width="2.6"/>`;
+
+  // loss curve (left, steep)
+  let dLoss = '';
+  for(let i=0;i<=100;i++){
+    const t = i/100;
+    const x = cx - t*scaleX;
+    const val = Math.pow(t, 0.7) * 70 * scaleDown;
+    const y = cy + val;
+    dLoss += (dLoss===''?'M':'L') + x.toFixed(1)+','+y.toFixed(1)+' ';
+  }
+  s += `<path d="${dLoss}" fill="none" stroke="${colorMap.down}" stroke-width="2.6"/>`;
+
+  s += `<circle cx="${(cx+scaleX*0.6).toFixed(1)}" cy="${(cy-Math.pow(0.6,0.7)*70*scaleUp).toFixed(1)}" r="4" fill="${colorMap.up}"/>`;
+  s += `<circle cx="${(cx-scaleX*0.6).toFixed(1)}" cy="${(cy+Math.pow(0.6,0.7)*70*scaleDown).toFixed(1)}" r="4" fill="${colorMap.down}"/>`;
+  s += `<text x="${(cx+scaleX*0.6).toFixed(1)}" y="${(cy-Math.pow(0.6,0.7)*70*scaleUp-12).toFixed(1)}" font-size="11" fill="${colorMap.up}" text-anchor="middle" font-weight="bold">기쁨 +1</text>`;
+  s += `<text x="${(cx-scaleX*0.6).toFixed(1)}" y="${(cy+Math.pow(0.6,0.7)*70*scaleDown+18).toFixed(1)}" font-size="11" fill="${colorMap.down}" text-anchor="middle" font-weight="bold">고통 -2</text>`;
+  s += `<text x="${cx}" y="${H-4}" font-size="10.5" fill="${colorMap.sub}" text-anchor="middle">같은 금액이어도 손실의 고통이 이익의 기쁨보다 훨씬 크게 느껴져</text>`;
+  s += `</svg>`;
+  document.getElementById('chart-lossaversion').innerHTML = s;
+}
+
+function updateQuiz(){
+  const checked = document.querySelectorAll('.q:checked').length;
+  const total = document.querySelectorAll('.q').length;
+  const el = document.getElementById('quiz-result');
+  let msg;
+  if(checked === 0) msg = '아직 체크한 게 없어. 위 항목들을 솔직하게 눌러봐.';
+  else if(checked <= 2) msg = `${checked}/${total}개 — 비교적 안정적인 편이야. 그래도 방심은 금물!`;
+  else if(checked <= 4) msg = `${checked}/${total}개 — 흔한 수준이지만, 매수·매도 원칙을 글로 미리 적어두면 도움이 돼.`;
+  else msg = `${checked}/${total}개 — 심리적 함정에 자주 흔들리고 있을 가능성이 높아. 작은 금액부터 원칙을 지키는 연습을 해보자.`;
+  el.innerHTML = msg;
+}
+document.querySelectorAll('.q').forEach(cb=> cb.addEventListener('change', updateQuiz));
+
+renderLossAversion();
+</script>
+</body>
+</html>

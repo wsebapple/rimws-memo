@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>리스크 관리와 분산투자</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAFAF5; --grid:#E4E7DD; --paper:#FFFFFF; --ink:#23262B;
+    --sub:#6C7268; --up:#D6455A; --down:#2E6B8A; --mustard:#E3A73F;
+  }
+  *{box-sizing:border-box;}
+  html{ color-scheme: light; }
+  html,body{margin:0;padding:0;}
+  body{
+    background-color:var(--bg);
+    background-image:
+      repeating-linear-gradient(0deg, var(--grid) 0px, var(--grid) 1px, transparent 1px, transparent 32px),
+      repeating-linear-gradient(90deg, var(--grid) 0px, var(--grid) 1px, transparent 1px, transparent 32px);
+    color:var(--ink); font-family:'Gowun Dodum', sans-serif; line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{ max-width:660px; margin:0 auto; padding:44px 22px 90px; }
+  h1,h2,h3{ font-family:'Gaegu', sans-serif; font-weight:700; color:var(--ink); margin:0; }
+  .breadcrumb{ font-size:0.85rem; color:var(--sub); margin-bottom:18px; }
+  .breadcrumb a{ color:var(--sub); }
+  .hero{ text-align:left; padding-bottom:28px; margin-bottom:34px; border-bottom:3px solid var(--ink); }
+  .hero h1{ font-size:2.2rem; line-height:1.3; }
+  .hero .accent{ color:var(--up); }
+  .hero p{ font-size:1.05rem; color:var(--sub); margin-top:14px; max-width:520px; }
+  section{ margin:56px 0; }
+  section h2{ font-size:1.5rem; margin-bottom:14px; display:flex; align-items:baseline; gap:10px; }
+  section h2 .num{ font-family:'Gaegu', sans-serif; color:var(--up); font-size:1.6rem; }
+  section p{ font-size:1rem; margin:12px 0; }
+  .chart-card{
+    background:var(--paper); border:2px solid var(--ink); border-radius:14px;
+    padding:18px 14px; margin:22px 0; box-shadow:5px 5px 0 var(--ink);
+  }
+  .note{
+    background:#FFF6E4; border:2px dashed var(--mustard); border-radius:10px;
+    padding:14px 16px; font-size:0.95rem; margin:18px 0;
+  }
+  .note b{ color:#9c6d17; }
+  .lab{
+    background:#EAF2F5; border:2px solid var(--down); border-radius:14px;
+    padding:20px 18px; margin:26px 0; box-shadow:5px 5px 0 var(--down);
+  }
+  .lab h3{ margin:0 0 4px; font-size:1.25rem; color:var(--down); }
+  .lab .sub{ font-size:0.88rem; color:var(--sub); margin-bottom:14px; }
+  .grid4{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+  @media(max-width:560px){ .grid4{ grid-template-columns:repeat(2,1fr); } }
+  .field{ display:flex; flex-direction:column; gap:4px; }
+  .field label{ font-size:0.83rem; color:var(--sub); }
+  .field input{
+    border:2px solid var(--ink); border-radius:8px; padding:9px 10px;
+    font-size:0.95rem; font-family:inherit; width:100%; background:#fff;
+  }
+  .result{
+    margin-top:16px; padding:14px 16px; background:#fff;
+    border:2px dashed var(--down); border-radius:10px; font-size:0.98rem;
+  }
+  .result b{ color:var(--down); }
+  .result .row{ display:flex; justify-content:space-between; margin:6px 0; }
+  .checklist{
+    background:var(--paper); border:2px solid var(--ink); border-radius:14px;
+    padding:22px 24px; box-shadow:5px 5px 0 var(--ink);
+  }
+  .checklist ul{ margin:0; padding-left:20px; }
+  .checklist li{ margin:10px 0; }
+  .checklist li b{ color:var(--up); }
+  .navrow{ display:flex; justify-content:space-between; gap:12px; margin-top:56px; font-size:0.92rem; flex-wrap:wrap; }
+  .navrow a{
+    color:var(--ink); text-decoration:none; border:2px solid var(--ink); border-radius:10px;
+    padding:10px 16px; box-shadow:3px 3px 0 var(--ink); background:#fff;
+  }
+  footer{ margin-top:56px; padding-top:20px; border-top:3px solid var(--ink); font-size:0.88rem; color:var(--sub); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="breadcrumb"><a href="./index.html">📚 주식 공부 아카이브</a> / 5장</div>
+
+  <div class="hero">
+    <h1>리스크 관리와<br><span class="accent">분산투자</span> 🥚🧺</h1>
+    <p>얼마나 잘 버는지보다 <b>얼마나 안 잃는지</b>가 오래 살아남는 투자자의 진짜 실력이야.
+    감이 아니라 숫자로 리스크를 관리하는 법을 알아보자.</p>
+  </div>
+
+  <section>
+    <h2><span class="num">1</span> 계란을 한 바구니에 담지 마라</h2>
+    <p>한 종목에 전 재산을 몰아넣으면, 그 회사에 예상 못 한 악재가 터졌을 때 자산 전체가
+    휘청거려. 여러 종목·업종·자산군에 나눠 담으면 하나가 흔들려도 전체 충격은 줄어들어.
+    이게 <b>분산투자</b>야.</p>
+    <div class="chart-card"><div id="chart-baskets"></div></div>
+    <div class="note"><b>ㅎㅎ 팁:</b> 그렇다고 아무거나 많이 담는다고 능사는 아니야. 서로 다른
+    이유로 움직이는 자산끼리 섞어야 진짜 분산 효과가 있어 (같은 업종 10개 담아봤자 다 같이
+    흔들릴 수 있어).</div>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span> 손절매 — 틀렸을 때 빨리 인정하기</h2>
+    <p><b>손절매(로스컷)</b>는 &ldquo;여기까지 떨어지면 미련 없이 판다&rdquo;는 가격을 미리
+    정해두는 거야. 예측이 틀렸다는 걸 인정하고, 작은 손실로 끝내는 안전장치지.</p>
+    <div class="chart-card"><div id="chart-stoploss"></div></div>
+    <p>손절선 없이 &ldquo;조금만 더 기다리면 오르겠지&rdquo하고 버티다가 작은 손실이 큰
+    손실로 불어나는 게 초보 투자자가 가장 자주 하는 실수야.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">3</span> 포지션 사이징 — 애초에 얼마를 걸 것인가</h2>
+    <p>손절선을 정했다면 다음 질문은 &ldquo;이번 거래에서 최대 얼마까지 잃어도 괜찮은가&rdquo;야.
+    보통 <b>계좌 전체의 1~2%</b> 정도를 한 거래의 최대 손실 한도로 잡는 걸 많이 추천해.
+    그 한도 안에서, 진입가와 손절가의 차이를 보고 몇 주를 살지 거꾸로 계산하는 게
+    <b>포지션 사이징</b>이야.</p>
+
+    <div class="lab">
+      <h3>🧮 직접 계산해보기</h3>
+      <div class="sub">계좌 잔고, 허용 리스크(%), 진입가, 손절가를 입력하면 몇 주까지 사도 되는지 계산해줘.</div>
+      <div class="grid4">
+        <div class="field"><label>계좌 잔고 (원)</label><input type="number" id="rm-balance" value="10000000" step="100000"></div>
+        <div class="field"><label>허용 리스크 (%)</label><input type="number" id="rm-risk" value="1" step="0.1"></div>
+        <div class="field"><label>진입가 (원)</label><input type="number" id="rm-entry" value="50000" step="100"></div>
+        <div class="field"><label>손절가 (원)</label><input type="number" id="rm-stop" value="47000" step="100"></div>
+      </div>
+      <div class="result" id="rm-result">계산 중...</div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">4</span> 한눈에 정리</h2>
+    <div class="checklist">
+      <ul>
+        <li><b>분산투자</b> — 여러 종목·자산에 나눠 담아 한 곳의 충격을 완화</li>
+        <li><b>손절매</b> — 예측이 틀렸을 때를 대비해 미리 정해두는 탈출 가격</li>
+        <li><b>포지션 사이징</b> — 이번 거래에서 잃어도 되는 금액을 먼저 정하고, 거꾸로 수량을 계산</li>
+        <li><b>공식</b> — 매수 수량 = (계좌 &times; 허용 리스크%) &divide; (진입가 &minus; 손절가)</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="navrow">
+    <a href="./financial-statements.html">← 4장. 재무제표</a>
+    <a href="./index.html">목차로</a>
+    <a href="./compound-interest.html">6장. 복리와 장기투자 →</a>
+  </div>
+
+  <footer>
+    이 문서의 예시 숫자는 설명을 위한 가상의 데이터야. 실제 투자 판단은 여러 정보를 함께 보고
+    신중하게 하는 걸 추천해 🙏
+  </footer>
+
+</div>
+
+<script>
+const colorMap = { up:'#D6455A', down:'#2E6B8A', mustard:'#E3A73F', ink:'#23262B', sub:'#6C7268' };
+
+function renderBaskets(){
+  const W = 640, H = 200;
+  let s = `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" font-family="Gowun Dodum, sans-serif">`;
+
+  // 왼쪽: 한 바구니
+  const cx1 = 150;
+  s += `<path d="M${cx1-60},${140} L${cx1-70},${100} L${cx1+70},${100} L${cx1+60},${140} Z" fill="none" stroke="${colorMap.ink}" stroke-width="2.5"/>`;
+  s += `<line x1="${cx1-70}" y1="100" x2="${cx1+70}" y2="100" stroke="${colorMap.ink}" stroke-width="2.5"/>`;
+  for(let i=0;i<8;i++){
+    const ex = cx1-45 + (i%4)*30 + (Math.floor(i/4)*10);
+    const ey = 90 - Math.floor(i/4)*16;
+    s += `<ellipse cx="${ex}" cy="${ey}" rx="11" ry="14" fill="${colorMap.up}" stroke="${colorMap.ink}" stroke-width="1.2"/>`;
+  }
+  s += `<text x="${cx1}" y="175" font-size="12" fill="${colorMap.up}" text-anchor="middle" font-weight="bold">한 종목에 몰빵</text>`;
+  s += `<text x="${cx1}" y="192" font-size="10.5" fill="${colorMap.sub}" text-anchor="middle">바구니가 떨어지면 전부 깨짐</text>`;
+
+  // 오른쪽: 여러 바구니
+  const positions = [420, 500, 580];
+  positions.forEach((cx,bi)=>{
+    s += `<path d="M${cx-28},${140} L${cx-33},${115} L${cx+33},${115} L${cx+28},${140} Z" fill="none" stroke="${colorMap.ink}" stroke-width="2"/>`;
+    s += `<line x1="${cx-33}" y1="115" x2="${cx+33}" y2="115" stroke="${colorMap.ink}" stroke-width="2"/>`;
+    for(let i=0;i<3;i++){
+      const ex = cx-16 + i*16;
+      const ey = 108 - (i%2)*8;
+      s += `<ellipse cx="${ex}" cy="${ey}" rx="7" ry="9" fill="${colorMap.down}" stroke="${colorMap.ink}" stroke-width="1"/>`;
+    }
+  });
+  s += `<text x="500" y="175" font-size="12" fill="${colorMap.down}" text-anchor="middle" font-weight="bold">여러 바구니에 분산</text>`;
+  s += `<text x="500" y="192" font-size="10.5" fill="${colorMap.sub}" text-anchor="middle">하나가 깨져도 나머지는 안전</text>`;
+
+  s += `</svg>`;
+  document.getElementById('chart-baskets').innerHTML = s;
+}
+
+function renderStopLoss(){
+  const prices = [100,103,101,106,104,109,107,102,98,94,90];
+  const stop = 95;
+  const W = 640, H = 220;
+  const marginL = 40, marginR = 16, marginT = 16, marginB = 24;
+  const plotW = W - marginL - marginR, plotH = H - marginT - marginB;
+  const pMin = 85, pMax = 112;
+  const y = (p)=> marginT + (pMax-p)/(pMax-pMin)*plotH;
+  const n = prices.length;
+  const x = (i)=> marginL + (plotW/(n-1))*i;
+
+  let s = `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" font-family="Gowun Dodum, sans-serif">`;
+  const ySt = y(stop);
+  s += `<line x1="${marginL}" y1="${ySt}" x2="${W-marginR}" y2="${ySt}" stroke="${colorMap.down}" stroke-width="2" stroke-dasharray="6,4"/>`;
+  s += `<text x="${W-marginR}" y="${ySt-6}" font-size="11" fill="${colorMap.down}" text-anchor="end">손절선 (95)</text>`;
+
+  let d = '';
+  let cutIndex = prices.findIndex(p=>p<=stop);
+  if(cutIndex === -1) cutIndex = n-1;
+  for(let i=0;i<=cutIndex;i++){
+    const px = x(i), py = y(prices[i]);
+    d += (d===''?'M':'L') + px.toFixed(1)+','+py.toFixed(1)+' ';
+  }
+  s += `<path d="${d}" fill="none" stroke="${colorMap.ink}" stroke-width="2.4"/>`;
+  const cx = x(cutIndex), cy = y(prices[cutIndex]);
+  s += `<circle cx="${cx}" cy="${cy}" r="6" fill="${colorMap.down}"/>`;
+  s += `<text x="${cx}" y="${cy+22}" font-size="11" fill="${colorMap.down}" text-anchor="middle" font-weight="bold">여기서 손절 실행</text>`;
+
+  // faded continuation without stop loss
+  let d2 = '';
+  for(let i=cutIndex;i<n;i++){
+    const px = x(i), py = y(prices[i]);
+    d2 += (d2===''?'M':'L') + px.toFixed(1)+','+py.toFixed(1)+' ';
+  }
+  s += `<path d="${d2}" fill="none" stroke="${colorMap.up}" stroke-width="2" stroke-dasharray="3,3" opacity="0.65"/>`;
+  s += `<text x="${x(n-1)}" y="${y(prices[n-1])-10}" font-size="10.5" fill="${colorMap.up}" text-anchor="end" opacity="0.85">손절 안 했으면...</text>`;
+  s += `</svg>`;
+  document.getElementById('chart-stoploss').innerHTML = s;
+}
+
+function fmtWon(n){ return isFinite(n) ? Math.round(n).toLocaleString('ko-KR') : '-'; }
+function updateRM(){
+  const balance = parseFloat(document.getElementById('rm-balance').value) || 0;
+  const riskPct = parseFloat(document.getElementById('rm-risk').value) || 0;
+  const entry = parseFloat(document.getElementById('rm-entry').value) || 0;
+  const stop = parseFloat(document.getElementById('rm-stop').value) || 0;
+  const riskAmount = balance * riskPct/100;
+  const perShareRisk = entry - stop;
+  const el = document.getElementById('rm-result');
+  if(perShareRisk <= 0){
+    el.innerHTML = `<span style="color:${colorMap.up}">손절가는 진입가보다 낮아야 계산할 수 있어.</span>`;
+    return;
+  }
+  const shares = Math.floor(riskAmount / perShareRisk);
+  const totalCost = shares * entry;
+  el.innerHTML = `
+    <div class="row"><span>이번 거래 최대 손실 허용액</span><b>${fmtWon(riskAmount)}원</b></div>
+    <div class="row"><span>1주당 리스크 (진입가-손절가)</span><b>${fmtWon(perShareRisk)}원</b></div>
+    <div class="row"><span>→ 최대 매수 가능 수량</span><b style="color:${colorMap.down}">${shares.toLocaleString('ko-KR')}주</b></div>
+    <div class="row"><span>필요 매수 금액</span><b>${fmtWon(totalCost)}원</b></div>
+  `;
+}
+['rm-balance','rm-risk','rm-entry','rm-stop'].forEach(id=> document.getElementById(id).addEventListener('input', updateRM));
+
+renderBaskets();
+renderStopLoss();
+updateRM();
+</script>
+</body>
+</html>
