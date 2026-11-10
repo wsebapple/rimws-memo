@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!-- saved from url=(0138)https://mem-server.bot.loamos.ai/api/mem/ephemeral/channel-artifacts/2026-11-10/1519243993567985674/smartcep-agent-api-answers-mobile.html -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>SmartCEP Agent API 협의 — 코드기반 답변 + 회의 메모</title>
+<style>
+:root{--ink:#16242e;--sub:#5a6b77;--line:#dce6ea;--bg:#eef3f5;--paper:#fff;--teal:#0f6c87;--teal-s:#e7f3f7;--org:#b35c18;--ok:#1a7a4c;--okb:#e3f4ea;--warn:#9a6b00;--warnb:#fbf1d8;--q:#8a2f2f;--qb:#fae9e9;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;color:var(--ink);background:var(--bg);font:16px/1.6 system-ui,-apple-system,"Noto Sans KR","Malgun Gothic",sans-serif;padding-bottom:84px}
+.wrap{width:min(900px,100%);margin:auto;padding:0 14px}
+header.hero{background:linear-gradient(135deg,#0d3a4e,#13798f);color:#fff;padding:18px 0 16px}
+.hero .eyebrow{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#b8e5f0;font-weight:800;margin:0 0 6px}
+h1{font-size:clamp(1.3rem,5vw,1.8rem);margin:0 0 8px;line-height:1.25;letter-spacing:-.02em}
+.hero p{margin:0;color:#dceef3;font-size:.9rem}
+.meta{margin-top:10px;font-size:.76rem;color:#cde8ee;background:#ffffff1a;border-radius:8px;padding:7px 10px}
+.meta code{background:#ffffff26;padding:1px 5px;border-radius:4px;font-size:.92em}
+nav.jump{position:sticky;top:0;z-index:20;background:#fffffff2;backdrop-filter:blur(6px);border-bottom:1px solid var(--line);display:flex;gap:6px;overflow-x:auto;padding:8px 14px;white-space:nowrap}
+nav.jump a{font-size:.8rem;font-weight:700;text-decoration:none;color:#2f5361;background:var(--teal-s);padding:5px 10px;border-radius:999px;flex:none}
+.legend{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}
+.b{font-size:.72rem;font-weight:800;padding:3px 8px;border-radius:6px;white-space:nowrap}
+.b.ok{background:var(--okb);color:var(--ok)}.b.warn{background:var(--warnb);color:var(--warn)}.b.q{background:var(--qb);color:var(--q)}
+.intro{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px;margin:12px 0;font-size:.86rem;color:var(--sub)}
+.intro b{color:var(--ink)}
+section{margin:22px 0}
+.sh{display:flex;align-items:baseline;gap:8px;margin:0 0 4px}
+.sh h2{font-size:1.12rem;margin:0;letter-spacing:-.02em}
+.sh .tag{font-size:.72rem;font-weight:800;color:var(--org)}
+.sdesc{font-size:.82rem;color:var(--sub);margin:0 0 10px}
+.card{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:10px;padding:12px 13px;margin:9px 0;box-shadow:0 1px 3px #1f44500a}
+.q{font-weight:800;font-size:.9rem;margin:0 0 7px;display:flex;gap:7px;align-items:flex-start}
+.q .n{color:var(--teal);flex:none}
+.a{font-size:.85rem;margin:0;color:#24333d}
+.a code{background:#eef3f5;border-radius:4px;padding:1px 4px;font-size:.84em;word-break:break-all}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:8px}
+.src{font-size:.72rem;color:#7b8c97}
+details.more{margin:10px 0}
+details.more>summary{cursor:pointer;font-size:.82rem;font-weight:700;color:var(--teal);padding:6px 0}
+.memo{background:#fffdf7;border:1px dashed #d8b86a;border-radius:10px;padding:11px;margin:10px 0}
+.memo label{display:block;font-size:.78rem;font-weight:800;color:var(--warn);margin-bottom:6px}
+.memo textarea{width:100%;min-height:74px;border:1px solid var(--line);border-radius:8px;padding:9px;font:inherit;font-size:.86rem;resize:vertical;background:#fff}
+.memo textarea:focus{outline:2px solid var(--teal);border-color:var(--teal)}
+.saved{font-size:.72rem;color:var(--ok);margin-top:4px;height:14px}
+table{border-collapse:collapse;width:100%;font-size:.8rem;margin:8px 0;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:#eef4f6;font-weight:800;white-space:nowrap}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fffffff2;backdrop-filter:blur(8px);border-top:1px solid var(--line);display:flex;gap:8px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));justify-content:center}
+.bar button{flex:1;max-width:260px;font:inherit;font-weight:800;font-size:.9rem;border:0;border-radius:10px;padding:12px;color:#fff;background:var(--teal)}
+.bar button.ghost{background:#fff;color:var(--teal);border:1.5px solid var(--teal)}
+.toast{position:fixed;left:50%;bottom:86px;transform:translateX(-50%);background:#16242e;color:#fff;font-size:.82rem;padding:9px 16px;border-radius:999px;opacity:0;transition:opacity .25s;z-index:40;pointer-events:none}
+.toast.on{opacity:1}
+footer{color:var(--sub);font-size:.74rem;padding:18px 0 8px}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<p class="eyebrow">SmartCEP · 넷스루 Agent API 협의</p>
+<h1>코드기반 답변 + 회의 메모</h1>
+<p>협의 질문을 우리 서버 소스로 검증한 답변입니다. 각 안건 하단 메모칸에 회의 답변을 적고, 하단 <b>답변 전체 복사</b>로 가져가세요.</p>
+<div class="meta">근거: <code>innods/cosi-console-v2</code> · <code>site/wrbank/agent-api/main @ a9e59bda</code> · 외부스펙 <code>uf_sc_agent_api_openapi.yaml</code> · 2026-11-10</div>
+</div></header>
+<nav class="jump"><a href="https://mem-server.bot.loamos.ai/api/mem/ephemeral/channel-artifacts/2026-11-10/1519243993567985674/smartcep-agent-api-answers-mobile.html#s1">안건①</a><a href="https://mem-server.bot.loamos.ai/api/mem/ephemeral/channel-artifacts/2026-11-10/1519243993567985674/smartcep-agent-api-answers-mobile.html#s2">안건②</a><a href="https://mem-server.bot.loamos.ai/api/mem/ephemeral/channel-artifacts/2026-11-10/1519243993567985674/smartcep-agent-api-answers-mobile.html#s3">안건③</a><a href="https://mem-server.bot.loamos.ai/api/mem/ephemeral/channel-artifacts/2026-11-10/1519243993567985674/smartcep-agent-api-answers-mobile.html#s4">안건④</a><a href="https://mem-server.bot.loamos.ai/api/mem/ephemeral/channel-artifacts/2026-11-10/1519243993567985674/smartcep-agent-api-answers-mobile.html#drift">드리프트</a><a href="https://mem-server.bot.loamos.ai/api/mem/ephemeral/channel-artifacts/2026-11-10/1519243993567985674/smartcep-agent-api-answers-mobile.html#rem">잔여질문</a></nav>
+<div class="wrap">
+<div class="legend"><span class="b ok">✅ 코드로 확정</span><span class="b warn">⚠️ 부분확정(데이터 의존)</span><span class="b q">❓ 코드로 불명</span></div>
+<div class="intro"><b>핵심:</b> 이 협의의 질문 다수는 "넷스루 서버 API가 어떻게 동작하나"이며, <b>그 서버가 곧 우리 레포의 agent-api 모듈</b>입니다. 따라서 상당수는 넷스루 회신 없이 <b>코드로 확정</b>됩니다. 남는 건 ① 테넌트(wrbank) DB 데이터 의존값, ② agent-api 하위 계층(MyBatis) 동작뿐입니다.</div>
+
+<section id="s1">
+<div class="sh"><h2>안건 ① 정상 조건과 기본값</h2><span class="tag">REQ-API-2</span></div>
+<p class="sdesc">7개 필드(vtime·vuid·vseq·flow·accessTime·sourceType·sessionId)를 콘솔에서 어떻게 다루나</p>
+<div class="card"><p class="q"><span class="n">Q</span><span>7개 필드가 코드에 하드코딩돼 특별 처리되나?</span></p><p class="a">아니오. agent-api 코드에 필드명 하드코딩 없음 — 전부 테넌트 DB <code>DataSourceAttribute</code>의 <b>시맨틱</b>으로 구동. <code>required</code> 시맨틱이 있을 때만 필수.</p><div class="row"><span class="b ok">✅</span><span class="src">AgentCepMetadataService.java:461-517, :494</span></div></div>
+<div class="card"><p class="q"><span class="n">Q</span><span>서버가 기본값(값·연산자)을 자동으로 채워주나?</span></p><p class="a">아니오. 누락된 required 필드는 <b>오류로 추가만</b> 하고 삽입하지 않음. 콘솔/에이전트가 전부 공급해야 함. operatorModel은 "허용 연산자 매트릭스"일 뿐 default 선택 아님.</p><div class="row"><span class="b ok">✅</span><span class="src">AgentConditionConverter.java:590-629 · Binder:810-817</span></div></div>
+<div class="card"><p class="q"><span class="n">Q</span><span>서버가 defaultBinding / appliedDefaults로 기본조건을 돌려주나?</span></p><p class="a">둘 다 <b>없음(제안 단계)</b>. 모델·openapi 전역 검색 0건. → 원하면 <b>신규 구현 대상</b>.</p><div class="row"><span class="b ok">✅ 부재확정</span><span class="src">AgentCondition / AgentValidationResult / FieldMeta</span></div></div>
+<div class="card"><p class="q"><span class="n">Q</span><span>editable.requiredFields "단일 DS만 채우고 다중 DS는 null" 규칙이 실제 구현됐나?</span></p><p class="a">예. <code>filtered.size()==1 &amp;&amp; !empty ? requiredFieldSet : null</code> (EVENT/SEGMENT 양쪽).</p><div class="row"><span class="b ok">✅</span><span class="src">AgentCepTemplateService.java:688-689, 749-750</span></div></div>
+<div class="card"><p class="q"><span class="n">Q</span><span>vtime(epoch-ms)/accessTime 단위·dateFormat?</span></p><p class="a"><code>dateFormat</code>은 <b>유효 DATETIME 필드에만</b>(허용 4코드 외는 필드 자체 제외). NUMBER 시각필드는 dateFormat 없음, <b>unit 필드는 아예 없음</b>. accessTime이 DATETIME인지 NUMBER인지는 DB설정 의존.</p><div class="row"><span class="b warn">⚠️</span><span class="src">FieldMeta.java:515 · :467-473</span></div></div>
+<div class="memo"><label>📝 안건① 회의 답변 메모</label><textarea data-k="m1" placeholder="7필드 실제 처리주체/기본조건 구성 사례, defaultBinding 신설 여부 등 넷스루 답변을 여기에..."></textarea><div class="saved" data-s="m1"></div></div>
+</section>
+
+<section id="s2">
+<div class="sh"><h2>안건 ② 검증 오류 → 보충 질문</h2><span class="tag">REQ-API-1</span></div>
+<p class="sdesc">오류가 어느 노드·필드·입력을 가리키는지</p>
+<div class="card"><p class="q"><span class="n">Q</span><span>nodeId/dataSourceId/field/parameterKey 등 위치필드가 이미 있나?</span></p><p class="a"><b>제안 9개 필드 전부 없음</b>. 위치는 <code>key</code> dotted-path 하나에만 인코딩됨. (<code>suggestedDataSourceCode</code>/<code>availableDataSourceCodes</code>만 신규 존재, CAP 경고 전용)</p><div class="row"><span class="b ok">✅ 추가분 확정</span><span class="src">AgentValidationError.java:19-48 · AgentErrorDetail.java:15-38</span></div></div>
+<div class="card"><p class="q"><span class="n">Q</span><span>오류 유형별(전체누락/필드누락/타입/허용값/채널)로 구분되나?</span></p><p class="a">예, 코드별로 구분: <code>CEP_PARAMETER_MISSING</code>/<code>CEP_RULE_INCOMPLETE</code>(누락), <code>CEP_PARAMETER_TYPE_ERROR</code>(타입), <code>AGENT_VALUE/OPERATOR/FIELD_NOT_ALLOWED</code>(허용값), <code>CEP_PARAMETER_INVALID_CHANNEL</code>(채널). 단 허용값 3코드는 enum 밖 리터럴.</p><div class="row"><span class="b warn">⚠️</span><span class="src">CepAgentErrorCodes.java:9-35</span></div></div>
+<div class="card"><p class="q"><span class="n">Q</span><span>독립 오류를 한 번에 주나, 첫 오류에서 멈추나?</span></p><p class="a"><b>노드 내부는 batch</b>(에러 누적 후 1회 throw), <b>노드 간은 first-stop</b>. dry-run은 바인더 예외를 catch해 details[] 전량을 validation.errors[]로 변환.</p><div class="row"><span class="b ok">✅</span><span class="src">AgentConditionConverter:742,804-811 · ScenarioCreateService:199-213</span></div></div>
+<div class="card"><p class="q"><span class="n">Q</span><span>key만으로 입력을 식별 가능한가?</span></p><p class="a">가능하나 <b>2종 포맷 혼재</b>: <code>nodes[인덱스].field</code>(바인더) vs <code>event.nodeId.expressions[i].conditions[j]...</code>(컨버터). 단일 정규포맷 아님 → 정규화 협의 필요.</p><div class="row"><span class="b warn">⚠️</span><span class="src">Binder:247 · ScenarioCreateService:808,840</span></div></div>
+<div class="card"><p class="q"><span class="n">Q</span><span>요청레벨 400 vs 노드바인딩 오류 처리 차이?</span></p><p class="a"><b>request-level은 항상 400</b>(error 객체), <b>node-binding은 dry-run이면 200+data.validation / 실행이면 400+error</b>. PDF 32-33 "두 단계"와 일치.</p><div class="row"><span class="b ok">✅</span><span class="src">AgentApiExceptionHandler · ScenarioCreateService:193-219</span></div></div>
+<div class="memo"><label>📝 안건② 회의 답변 메모</label><textarea data-k="m2" placeholder="key 포맷 정규화 vs 구조화 위치필드(nodeId 등) 추가 중 어느 방향? 넷스루 합의 내용..."></textarea><div class="saved" data-s="m2"></div></div>
+</section>
+
+<section id="s3">
+<div class="sh"><h2>안건 ③ 선택값 조회</h2><span class="tag">REQ-API-4</span></div>
+<p class="sdesc">응답 목록·별도 검색·미등록 구분</p>
+<div class="card"><p class="q"><span class="n">Q</span><span>allowedValues는 언제 노출되나?</span></p><p class="a"><b>3조건 AND</b>: ①<code>includeAllowedValues=true</code>(기본 false) ②<code>enabledSetMetaData</code>(CHECKBOX/RADIO) ③<code>!isSharedMeta</code>(metaShare 아님). metaShare 필드는 값이 수십만건이라 항상 생략.</p><div class="row"><span class="b ok">✅</span><span class="src">AgentCepMetadataService.java:402,432-437,478-486</span></div></div>
+<div class="card"><p class="q"><span class="n">Q</span><span>metaShare는 뭘 의미하고 field-values로 보내나?</span></p><p class="a"><code>isSharedMeta=true</code> → <code>metaShare=true</code> + <b>metaLink 생성</b>(<code>/cep/metadata/field-values?dataSourceId=..&amp;field=..</code>). 자유입력 아님, 검색해 선택지 제시.</p><div class="row"><span class="b ok">✅</span><span class="src">AgentCepMetadataService.java:495-501</span></div></div>
+<div class="card"><p class="q"><span class="n">Q</span><span>검색 0건 vs 전체 등록값 0건 구분되나?</span></p><p class="a"><b>응답으로 구분 불가.</b> 응답은 items/total뿐, keyword 반향·구분 플래그 없음 → 둘 다 <code>items=[] total=0</code>. 클라이언트가 자기 keyword를 기억해야 함. → <b>보강 필요</b>.</p><div class="row"><span class="b q">❓ 설계공백</span><span class="src">AgentPageResult (searchFieldValues)</span></div></div>
+<div class="card"><p class="q"><span class="n">Q</span><span>INLINE/LOOKUP/DIRECT/UNAVAILABLE를 기존 필드로 구분 가능?</span></p><p class="a"><b>가능</b>(전용 enum 없음): allowedValues/metaShare/metaLink/inputType 조합으로 유도. 단 <code>includeAllowedValues=false</code>면 INLINE↔DIRECT가 둘 다 null이라 inputType 병행 해석 필요.</p><div class="row"><span class="b warn">⚠️</span><span class="src">FieldMeta.java:63,76-80 · Service:480-491</span></div></div>
+<div class="card"><p class="q"><span class="n">Q</span><span>콘솔 값 변경 후 언제 재조회? (캐시)</span></p><p class="a"><b>CAP 메타는 Caffeine 캐시 TTL 600초(10분), evict 없음</b> → 콘솔 변경 후 최대 10분 구값. <b>CEP 메타·field-values는 무캐시</b>(매 호출 DB).</p><div class="row"><span class="b ok">✅</span><span class="src">AgentCapMetadataService @Cacheable · application.yml:320-322</span></div></div>
+<div class="memo"><label>📝 안건③ 회의 답변 메모</label><textarea data-k="m3" placeholder="0건 2종 구분 수단, CAP 10분 캐시 즉시 무효화 필요 여부, value-name의 name 검색 커버 등..."></textarea><div class="saved" data-s="m3"></div></div>
+</section>
+
+<section id="s4">
+<div class="sh"><h2>안건 ④ 저장과 확인</h2><span class="tag">REQ-API-3</span></div>
+<p class="sdesc">dry-run·승인·저장·재조회 차이</p>
+<div class="card"><p class="q"><span class="n">Q</span><span>dry-run과 저장의 검증 범위가 다른가?</span></p><p class="a"><b>단일 엔드포인트</b> <code>POST /cep/scenarios</code> + 바디 <code>dryRun</code> 플래그. 바인딩·룰검증은 공통, <b>기간 상한 등 저장측 검증(merge→validateForMerge)은 save에서만</b> 실행.</p><div class="row"><span class="b ok">✅</span><span class="src">ScenarioCreateService:222 · CampaignService:429-438</span></div></div>
+<div class="card"><p class="q"><span class="n">Q</span><span>기간 상한은 저장 때만 검사되나?</span></p><p class="a">예. <code>maxPeriodDays</code>는 <code>validateForMerge():531-536</code>에만 존재, dry-run은 merge 전 return. (시작&lt;종료 순서검증은 양쪽 공통)</p><div class="row"><span class="b ok">✅</span><span class="src">CampaignService.java:531-536</span></div></div>
+<div class="card"><p class="q"><span class="n">Q</span><span>불완전 요청이 WRITING으로 저장되나?</span></p><p class="a"><b>예(사이드이펙트).</b> 바인딩 통과 후 룰 미완성이면 <b>거부 없이</b> <code>status=WRITING</code>으로 저장. 완성이면 WROTE. → "검증 안 된 초안 저장 회피" strict 옵션은 <b>없음</b>, dry-run 선검증이 유일 방어선.</p><div class="row"><span class="b ok">✅</span><span class="src">AgentCepScenarioCreateService:256-270</span></div></div>
+<div class="card"><p class="q"><span class="n">Q</span><span>저장 응답/재조회?</span></p><p class="a"><code>scenarioId</code> + <code>status</code>(WROTE|WRITING) + <code>links.detail=/cep/scenarios/{id}</code>. 재조회 <code>GET /scenarios/{id}</code>. save=201, dry-run=200.</p><div class="row"><span class="b ok">✅</span><span class="src">CepScenarioCreateResult:72-80 · Controller:198</span></div></div>
+<div class="card"><p class="q"><span class="n">Q</span><span>rate limit / 멱등성 키?</span></p><p class="a"><b>rate limit 100rpm 확정</b>(토큰별 1분 고정윈도우, 초과 429, env 오버라이드 가능). <b>멱등성 키 지원</b>(<code>Idempotency-Key</code> 헤더, body SHA-256 fingerprint, TTL 24h, dry-run 제외).</p><div class="row"><span class="b ok">✅</span><span class="src">AgentApiSetting:23 · Controller:250</span></div></div>
+<div class="memo"><label>📝 안건④ 회의 답변 메모</label><textarea data-k="m4" placeholder="strict 저장거부 옵션 신설 여부, 기간상한을 dry-run에도 포함할지 등 합의..."></textarea><div class="saved" data-s="m4"></div></div>
+</section>
+
+<section id="drift">
+<div class="sh"><h2>⚠️ 외부 스펙 ↔ 코드 드리프트</h2></div>
+<p class="sdesc">회의 전 정렬 필요 (넷스루 배포 버전이 a9e59bda와 같은 계약인지도 확인)</p>
+<table><thead><tr><th>#</th><th>항목</th><th>내용</th></tr></thead><tbody>
+<tr><td>D1</td><td>nextAction enum 불일치</td><td>openapi는 AgentValidationError.nextAction을 닫힌 enum(4값)으로, 소스는 free-string + AgentErrorDetail은 "enum 아님"으로 선언. 서버가 enum 밖 값 넣으면 스펙 위반 소지.</td></tr>
+<tr><td>D2</td><td>에러코드 enum 밖 리터럴</td><td>AGENT_VALUE/OPERATOR/FIELD_NOT_ALLOWED, AGENT_INVALID_REQUEST 등이 CepAgentErrorCodes enum에 없고 하드코딩.</td></tr>
+<tr><td>D3</td><td>requiredFields 단일DS 규칙 미기재</td><td>코드의 "단일 DS만 채우고 다중은 null" 규칙이 external 스펙 설명에 빠짐(스키마 타입은 일치).</td></tr>
+<tr><td>D4</td><td>0건 구분·캐시 미기재</td><td>검색0건/전체0건 구분 수단 부재, CAP 메타 10분 캐시가 스펙에 없음 → 재조회 지연 예측 불가.</td></tr>
+</tbody></table>
+</section>
+
+<section id="rem">
+<div class="sh"><h2>회의에서 넷스루에 실제로 물을 것</h2></div>
+<p class="sdesc">코드로 못 답한 잔여분 4가지 — 나머지는 코드로 확정돼 안건에서 내려도 됨</p>
+<div class="card"><p class="a"><b>1. wrbank DB 속성 실값</b> — 7필드 각각 실제 required/dataType/연산자, 화면(1)·행동(2) DS별 required 마킹, accessTime의 dataType·단위. <i>(코드는 메커니즘만, 실값은 데이터)</i></p></div>
+<div class="card"><p class="a"><b>2. field-values value-name 타겟의 name 검색 커버</b> — 하위 MyBatis mapper 동작. <i>(agent-api 레이어 밖)</i></p></div>
+<div class="card"><p class="a"><b>3. 콘솔 "정상 기본조건" 구성 사례</b> — 콘솔이 어떤 필드를 어떤 연산자/값으로 자동으로 채우는지(서버 코드엔 없음).</p></div>
+<div class="card"><p class="a"><b>4. 배포 버전 정합</b> — 넷스루 운영망 agent-api가 a9e59bda와 동일 계약인지.</p></div>
+<div class="memo"><label>📝 종합 메모 / 후속 액션</label><textarea data-k="m0" placeholder="담당·예정일, 후속 샘플 요청, 합의 요약 등..."></textarea><div class="saved" data-s="m0"></div></div>
+</section>
+
+<footer>이 문서는 협의 질문을 우리 서버 소스로 검증한 답변입니다. 메모는 이 기기 브라우저에만 저장됩니다(자동저장). 회의 후 하단 "답변 전체 복사"로 가져가세요.</footer>
+</div>
+
+<div class="bar"><button class="ghost" id="clr">메모 비우기</button><button id="cpy">📋 답변 전체 복사</button></div>
+<div class="toast" id="toast"></div>
+<script>
+var KEY='smartcep-agent-memo-v1';
+function load(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return{}}}
+function save(d){try{localStorage.setItem(KEY,JSON.stringify(d))}catch(e){}}
+var data=load();
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('on');setTimeout(function(){t.classList.remove('on')},1600)}
+document.querySelectorAll('textarea[data-k]').forEach(function(ta){
+  var k=ta.getAttribute('data-k');if(data[k])ta.value=data[k];
+  var s=document.querySelector('[data-s="'+k+'"]');var tmr;
+  ta.addEventListener('input',function(){data[k]=ta.value;clearTimeout(tmr);tmr=setTimeout(function(){save(data);if(s){s.textContent='✓ 저장됨';setTimeout(function(){s.textContent=''},1200)}},350)});
+});
+var LABELS={m1:'[안건① 정상조건·기본값]',m2:'[안건② 검증오류구조]',m3:'[안건③ 선택값조회]',m4:'[안건④ 저장·확인]',m0:'[종합/후속]'};
+document.getElementById('cpy').addEventListener('click',function(){
+  var out=['SmartCEP Agent API 협의 — 회의 메모','근거: site/wrbank/agent-api/main @ a9e59bda',''];
+  ['m1','m2','m3','m4','m0'].forEach(function(k){var v=(data[k]||'').trim();if(v){out.push(LABELS[k]);out.push(v);out.push('')}});
+  var text=out.join('\n');
+  if(out.length<=3){toast('아직 작성된 메모가 없습니다');return}
+  function done(){toast('답변 전체 복사됨 — 붙여넣기 하세요')}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,function(){prompt('복사 실패 — 아래를 길게 눌러 복사:',text)})}
+  else{var t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();try{document.execCommand('copy');done()}catch(e){prompt('복사하세요:',text)}document.body.removeChild(t)}
+});
+document.getElementById('clr').addEventListener('click',function(){
+  if(!confirm('이 기기에 저장된 메모를 모두 지울까요?'))return;
+  data={};save(data);document.querySelectorAll('textarea[data-k]').forEach(function(ta){ta.value=''});toast('메모를 비웠습니다')
+});
+</script>
+
+
+</body></html>
